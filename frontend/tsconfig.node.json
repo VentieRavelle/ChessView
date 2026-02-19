@@ -6,7 +6,7 @@
     "moduleResolution": "Bundler",
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
-    "noEmit": false // <--- Попробуй поставить false, это должно успокоить основной конфиг
+    "noEmit": false 
   },
   "include": ["vite.config.ts"]
 }
