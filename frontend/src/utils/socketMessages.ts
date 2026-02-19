@@ -1,0 +1,6 @@
+export const MSG_TYPES = {
+  MATCH_FOUND: 'MATCH_FOUND',
+  MOVE: 'MOVE',
+  GAME_OVER: 'GAME_OVER',
+  ERROR: 'ERROR'
+};

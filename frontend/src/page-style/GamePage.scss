@@ -1,0 +1,299 @@
+@use "sass:color";
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+$bg-dark: #121417;
+$bg-card: #1c1f26;
+$accent-cyan: #00d1ff;
+$accent-blue: #0075ff;
+$text-main: #e0e6ed;
+$text-dim: #94a3b8;
+$danger: #ff4757;
+$success: #2ed573;
+$border-color: rgba(255, 255, 255, 0.08);
+
+.game-layout-root {
+  min-height: 100vh;
+  background-color: $bg-dark;
+  color: $text-main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.game-three-columns {
+  display: grid;
+  grid-template-columns: 320px 1fr 320px;
+  gap: 24px;
+  width: 100%;
+  max-width: 1600px;
+  height: 850px;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+}
+
+.side-panel {
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+  .panel-header {
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid $border-color;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: $accent-cyan;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+  }
+}
+
+.arena-center {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+
+  .board-main-container {
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 1/1;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba($accent-blue, 0.1);
+    border: 4px solid #2a2e35;
+  }
+}
+
+.player-box {
+  width: 100%;
+  max-width: 600px;
+  background: $bg-card;
+  border-radius: 12px;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid $border-color;
+  transition: all 0.3s ease;
+
+  &.active-turn {
+    border-color: rgba($accent-cyan, 0.5);
+    box-shadow: 0 0 15px rgba($accent-cyan, 0.15);
+    background: color.adjust($bg-card, $lightness: 2%);
+  }
+
+  .p-main-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .p-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: #2a2e35;
+      
+      &.active-neon-border {
+        border: 2px solid $accent-cyan;
+        box-shadow: 0 0 10px rgba($accent-cyan, 0.4);
+      }
+    }
+
+    .p-data {
+      .p-name-row {
+        font-weight: 600;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .p-badge {
+          font-size: 0.65rem;
+          background: $accent-blue;
+          padding: 2px 6px;
+          border-radius: 4px;
+          color: white;
+        }
+      }
+      .p-sub {
+        font-size: 0.8rem;
+        color: $text-dim;
+      }
+    }
+  }
+
+  .p-time-display {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 6px;
+    background: #121417;
+    min-width: 90px;
+    text-align: center;
+    border: 1px solid $border-color;
+
+    &.waiting { color: #4b5563; }
+    &.white-timer { color: #fff; text-shadow: 0 0 8px rgba(255,255,255,0.3); }
+    &.black-timer { color: $accent-cyan; }
+  }
+}
+
+.chat-side {
+  .chat-area {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .chat-msg {
+      font-size: 0.9rem;
+      padding: 8px 12px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+      border-left: 3px solid transparent;
+
+      &.self {
+        border-left-color: $accent-blue;
+      }
+
+      .msg-user {
+        font-weight: 700;
+        color: $accent-cyan;
+        margin-right: 6px;
+      }
+    }
+  }
+
+  .chat-input-box {
+    padding: 16px;
+    display: flex;
+    gap: 10px;
+    background: rgba(0,0,0,0.2);
+
+    input {
+      flex: 1;
+      background: #121417;
+      border: 1px solid $border-color;
+      border-radius: 8px;
+      padding: 10px;
+      color: white;
+      outline: none;
+      &:focus { border-color: $accent-blue; }
+    }
+
+    button {
+      background: $accent-blue;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      width: 40px;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: 0.2s;
+      &:hover { background: color.adjust($accent-blue, $lightness: -10%); }
+    }
+  }
+}
+
+.history-side {
+  .moves-list {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+
+    .move-row {
+      display: grid;
+      grid-template-columns: 40px 1fr 1fr;
+      padding: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.02);
+      font-size: 0.95rem;
+
+      &:nth-child(even) { background: rgba(255,255,255,0.01); }
+
+      .m-num { color: $text-dim; font-size: 0.8rem; }
+      .m-val { font-weight: 500; }
+    }
+  }
+
+  .game-controls {
+    padding: 20px;
+    border-top: 1px solid $border-color;
+
+    button.resign-btn {
+      width: 100%;
+      padding: 12px;
+      background: rgba($danger, 0.1);
+      border: 1px solid rgba($danger, 0.3);
+      color: $danger;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 600;
+      transition: all 0.2s;
+      
+      &:hover:not(:disabled) {
+        background: $danger;
+        color: white;
+      }
+      &:disabled { opacity: 0.4; cursor: not-allowed; }
+    }
+
+    .resign-confirm-group {
+      display: flex;
+      gap: 8px;
+      .confirm-btn {
+        flex: 1;
+        padding: 10px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+
+        &.yes { background: $danger; color: white; }
+        &.no { background: #34495e; color: white; }
+      }
+    }
+  }
+}
+
+.custom-scrollbar {
+  &::-webkit-scrollbar { width: 5px; }
+  &::-webkit-scrollbar-track { background: transparent; }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+  }
+}

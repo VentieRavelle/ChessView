@@ -1,0 +1,27 @@
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; z-index: 9999; animation: fadeIn 0.3s ease; }
+.game-over-card { background: #1c1f26; border-radius: 24px; padding: 40px; width: 400px; text-align: center; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); position: relative; overflow: hidden; }
+.game-over-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; }
+.game-over-card.win-theme { border-color: rgba(46, 213, 115, 0.3); }
+.game-over-card.win-theme::before { background: #2ed573; box-shadow: 0 0 20px #2ed573; }
+.game-over-card.win-theme h1 { color: #2ed573; }
+.game-over-card.loss-theme { border-color: rgba(255, 71, 87, 0.3); }
+.game-over-card.loss-theme::before { background: #ff4757; box-shadow: 0 0 20px #ff4757; }
+.game-over-card.loss-theme h1 { color: #ff4757; }
+.game-over-card.draw-theme { border-color: rgba(0, 209, 255, 0.3); }
+.game-over-card.draw-theme::before { background: #00d1ff; box-shadow: 0 0 20px #00d1ff; }
+.game-over-card.draw-theme h1 { color: #00d1ff; }
+.game-over-card .result-icon { width: 80px; height: 80px; margin-bottom: 20px; filter: drop-shadow(0 0 10px currentColor); }
+.game-over-card h1 { font-size: 2.5rem; font-weight: 900; margin: 0; letter-spacing: 2px; }
+.game-over-card .winner-text { color: #94a3b8; margin-top: 10px; font-size: 1.1rem; }
+.game-over-card .rating-section { margin: 30px 0; padding: 15px; background: rgba(255, 255, 255, 0.03); border-radius: 12px; display: flex; justify-content: center; align-items: center; gap: 15px; }
+.game-over-card .rating-section .label { color: #64748b; font-size: 0.9rem; text-transform: uppercase; }
+.game-over-card .rating-section .change { font-size: 1.5rem; font-weight: 800; }
+.game-over-card .rating-section .change.plus { color: #2ed573; }
+.game-over-card .rating-section .change.minus { color: #ff4757; }
+.game-over-card .result-footer { display: flex; flex-direction: column; gap: 12px; }
+.game-over-card .result-footer button { padding: 14px; border-radius: 12px; border: none; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.2s; }
+.game-over-card .result-footer button.btn-restart { background: #0075ff; color: white; }
+.game-over-card .result-footer button.btn-restart:hover { background: #0056b3; transform: translateY(-2px); }
+.game-over-card .result-footer button.btn-home { background: transparent; color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.1); }
+.game-over-card .result-footer button.btn-home:hover { background: rgba(255, 255, 255, 0.05); color: white; }
+@keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }

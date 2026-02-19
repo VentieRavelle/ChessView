@@ -1,0 +1,126 @@
+.NotFoundModal-page {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(2, 6, 23, 0.85);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeInOverlay 0.3s ease;
+  }
+  .btn-text {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+  .modal-content-premium {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    background: #0f1115;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 28px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7),
+                0 0 40px rgba(239, 68, 68, 0.05);
+    padding: 48px 32px;
+    text-align: center;
+    animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .modal-header-clean {
+    .error-icon-container {
+      display: inline-flex;
+      padding: 20px;
+      border-radius: 50%;
+      background: rgba(239, 68, 68, 0.05);
+      color: #ef4444;
+      margin-bottom: 24px;
+      filter: drop-shadow(0 0 15px rgba(239, 68, 68, 0.3));
+    }
+
+    h2 {
+      font-size: 64px;
+      font-weight: 900;
+      color: #fff;
+      margin: 0;
+      line-height: 1;
+      letter-spacing: -2px;
+      background: linear-gradient(to bottom, #fff 30%, #444);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h3 {
+      font-size: 20px;
+      color: #fff;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    p {
+      color: #64748b;
+      font-size: 15px;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+  }
+
+  .modal-footer-actions {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+
+    .modern-cancel-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      padding: 14px 28px;
+      border-radius: 16px;
+      color: #3b82f6;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+      &:hover {
+        background: #3b82f6;
+        color: #fff;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.4);
+      }
+
+      &:active {
+        transform: translateY(-1px);
+      }
+    }
+  }
+}
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalPop {
+  from { 
+    opacity: 0; 
+    transform: scale(0.9) translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: scale(1) translateY(0); 
+  }
+}

@@ -1,0 +1,63 @@
+.friendgame-page {
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(12px); display: flex; align-items: center; justify-content: center; z-index: 10000;
+  }
+
+  .modal-content-friend {
+    background: #0f1115; width: 100%; max-width: 480px; border-radius: 28px;
+    border: 1px solid rgba(255,255,255,0.1); padding: 40px; position: relative;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  }
+
+  .modal-header {
+    text-align: center; margin-bottom: 32px;
+    .header-icon { color: #00d1ff; margin-bottom: 12px; }
+    h2 { font-size: 24px; font-weight: 800; margin: 0; }
+    p { color: #666; font-size: 14px; margin-top: 4px; }
+  }
+
+  .setup-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    .full-width { grid-column: span 2; }
+  }
+
+  .setup-item {
+    label { display: block; font-size: 12px; color: #444; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; font-weight: 700; }
+    input[type="range"] {
+      width: 100%; accent-color: #00d1ff; cursor: pointer;
+    }
+    .value-display { text-align: center; font-size: 18px; font-weight: 800; color: #fff; margin-top: 8px; }
+  }
+
+  .toggle-group {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    background: rgba(255,255,255,0.03); padding: 4px; border-radius: 12px;
+    button {
+      border: none; background: transparent; color: #666; padding: 10px;
+      border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 13px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: 0.2s;
+      &.active { background: #00d1ff; color: #000; }
+    }
+  }
+
+  .color-selector {
+    display: flex; justify-content: center; gap: 20px;
+    .color-btn {
+      width: 50px; height: 50px; border-radius: 12px; cursor: pointer; border: 2px solid transparent; transition: 0.2s;
+      &.white { background: #eee; }
+      &.black { background: #333; }
+      &.random { background: linear-gradient(45deg, #eee 50%, #333 50%); }
+      &.selected { border-color: #00d1ff; transform: scale(1.1); box-shadow: 0 0 15px rgba(0,209,255,0.4); }
+    }
+  }
+
+  .create-link-button {
+    width: 100%; margin-top: 40px; background: #fff; color: #000; border: none;
+    padding: 16px; border-radius: 14px; font-weight: 800; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    transition: 0.3s;
+    &:hover { background: #00d1ff; transform: translateY(-2px); }
+  }
+}
