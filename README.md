@@ -50,12 +50,12 @@ The project is built on a high-performance stack designed for scale, real-time s
 └── README.md
 ```
 
-##Frontend
+## Frontend
 ```
 ├── cd frontend
 ├── npm run dev
 ```
-##Backend
+## Backend
 ```
 ├── cd backend/chess-server
 ├── go run main.go
